@@ -1,0 +1,45 @@
+{
+  "name": "listing-people-api",
+  "version": "1.0.0",
+  "description": "Example to create a simple backend application with spiel-server",
+  "main": "lib/src/index.js",
+  "scripts": {
+    "test": "lab -v --sourcemaps --transform node_modules/lab-transform-typescript test/people.test.ts",
+    "build": "tsc -w",
+    "watch": "sh run.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spiel-examples/listing-people-api.git"
+  },
+  "keywords": [
+    "spieljs",
+    "spiel-server",
+    "nodejs",
+    "mongoose",
+    "api",
+    "typescript",
+    "webpack"
+  ],
+  "author": "Francisco Jesus Navarro Cortes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spiel-examples/listing-people-api/issues"
+  },
+  "homepage": "https://github.com/spiel-examples/listing-people-api#readme",
+  "dependencies": {
+    "mongoose": "^5.0.10",
+    "spiel-server": "^0.2.0",
+    "ts-node": "^5.0.1",
+    "typegoose": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/code": "^4.0.4",
+    "code": "^5.2.0",
+    "lab": "^15.4.0",
+    "lab-transform-typescript": "^3.0.1",
+    "nodemon": "^1.17.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  }
+}
