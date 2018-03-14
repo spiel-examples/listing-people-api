@@ -6,6 +6,9 @@ import { People } from "./modules";
 
 const app = new Road();
 
+const connect = mongoose.connect(`mongodb://${globalConfig.mongodb.username}:` +
+`${globalConfig.mongodb.password}@${globalConfig.mongodb.host}/${globalConfig.mongodb.database}`);
+
 const server = new Server(app, (error: IError) => {
     switch (error.code) {
         case 404:
@@ -17,6 +20,13 @@ const server = new Server(app, (error: IError) => {
         return new HttpError(error.message, 500);
     }
 });
+
+const cors = {
+    requestHeaders: ["content-type"],
+    validMethods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
+    validOrigins: ["http://localhost:3000"],
+};
+
 const endpoints = [new People()];
 
 const configRouter: IRouterOptions = {
@@ -28,9 +38,7 @@ const configRouter: IRouterOptions = {
 
 new SetRouter(configRouter);
 
-mongoose.connect(`mongodb://${globalConfig.mongodb.username}:
-${globalConfig.mongodb.password}@${globalConfig.mongodb.host}/${globalConfig.mongodb.database}`)
-.then(() => {
+connect.then(() => {
     server.listen(globalConfig.service.port, () => {
         console.log(`Server running in port ${globalConfig.service.port}`);
     });
