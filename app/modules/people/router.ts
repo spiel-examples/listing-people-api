@@ -19,7 +19,7 @@ export class People {
             return new Response(response, 200);
         } catch (error) {
             console.log(error);
-            return new HttpError(error, 500);
+            return new Response(error, 500);
         }
     }
 
@@ -30,7 +30,8 @@ export class People {
             console.log(response);
             return new Response(response, 200);
         } catch (error) {
-            return new HttpError(error, 500);
+            console.log(error);
+            return new Response(error, 500);
         }
     }
 
@@ -42,7 +43,8 @@ export class People {
                 .remove();
             return new Response(id, 200);
         } catch (error) {
-            return new HttpError(error, 500);
+            console.log(error);
+            return new Response(error, 500);
         }
     }
 }

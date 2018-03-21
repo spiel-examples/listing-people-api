@@ -31,6 +31,7 @@ const endpoints = [new People()];
 
 const configRouter: IRouterOptions = {
   connectionMode: true,
+  cors,
   endpoints,
   road: app,
   verbose: true,
