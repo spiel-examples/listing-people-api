@@ -1,12 +1,12 @@
-import {Delete, Endpoint, Get, HttpError, IBody, Post, Put, Response} from "spiel-server";
+import {Delete, Endpoint, Get, HttpError, IUrl, Post, Put, Response} from "spiel-server";
 import {peopleModel} from "./model";
 
-@Endpoint("people")
+@Endpoint()
 export class People {
-    private body: IBody;
+    private body: any;
 
     @Get("")
-    private async getPeople(url: any) {
+    private async getPeople(url: IUrl) {
         try {
             let query = url.query;
             if (Object.keys(query).length) {
@@ -36,7 +36,7 @@ export class People {
     }
 
     @Delete("$id")
-    private async deletePerson(url: any) {
+    private async deletePerson(url: IUrl) {
         const id = url.args.id;
         try {
             const response = await peopleModel.findById(id)

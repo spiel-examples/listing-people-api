@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/spiel-examples/listing-people-api#readme",
   "dependencies": {
-    "spiel-server": "^0.2.0",
+    "spiel-server": "^1.0.0",
     "ts-node": "^5.0.1",
     "typegoose": "^4.0.1"
   },
